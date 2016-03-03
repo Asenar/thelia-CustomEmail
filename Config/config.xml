@@ -28,6 +28,14 @@
     </services>
     -->
 
+    <services>
+        <service id="send.customemail.mail" class="CustomEmail\Listener\UpdateStatus" scope="request">
+            <argument type="service" id="thelia.parser" />
+            <argument type="service" id="mailer"/>
+            <tag name="kernel.event_subscriber"/>
+        </service>
+    </services>
+
     <hooks>
         <hook id="customemail.hook" class="CustomEmail\Hook\OrderEditHook" scope="request">
             <tag name="hook.event_listener" event="order.edit-js" type="back" method="onEditOrderJs" />
