@@ -77,19 +77,19 @@ $(document).on("ready", function(){
 
     var container = $('<div class="well pull-right text-left bg-info"><h4 style="padding:0;margin:0">Change status and</h4>');
     var label0 = $('<label class="radio">');
-    var radio0 = $('<input type="radio" name="send_mail" value="default">');
+    var radio0 = $('<input id="send_mail-default" type="radio" name="send_mail" value="default">');
     label0.html(radio0);
     label0.append("$do_send");
     container.append(label0);
 
     var label1 = $('<label class="radio">');
-    var radio1 = $('<input checked="checked" type="radio" name="send_mail" value="no">');
+    var radio1 = $('<input id="send_mail-no" checked="checked" type="radio" name="send_mail" value="no">');
     label1.html(radio1);
     label1.append("$do_not_send");
     container.append(label1);
 
     var label2 = $('<label class="radio">');
-    var radio2 = $('<input type="radio" name="send_mail" value="custom">');
+    var radio2 = $('<input id="send_mail-custom" type="radio" name="send_mail" value="custom">');
     label2.html(radio2);
     label2.append("$send_custom");
     container.append(label2);
@@ -102,6 +102,7 @@ $(document).on("ready", function(){
     })
     $(container).append(customMessageInput);
     $("#order-update-status-form").append(container);
+    $("#send_mail-no").click();
     // }}}
 
     $("#order-update-status-form").on("submit", function(e) {
@@ -109,11 +110,11 @@ $(document).on("ready", function(){
         if (send_mail == "default") {
             return true;
         }
-        console && console.log("preventing default");
-        e.preventDefault();
         if (send_mail == "no") {
             return true;
         }
+
+        e.preventDefault();
         if (send_mail == "custom") {
             console && console.log("modal show");
             $("#customMessageModal").modal("show");
