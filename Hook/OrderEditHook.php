@@ -19,9 +19,9 @@ use Thelia\Model\ConfigQuery;
 
 
 /**
- * Class FrontHook
- * @package HookCurrency\Hook
- * @author Julien Chanséaume <jchanseaume@openstudio.fr>
+ * Class OrderEditHook
+ * @package CustomEmail\Hook
+ * @author Michaël Marinetti <github@marinetti.fr>
  */
 class OrderEditHook extends BaseHook {
 
