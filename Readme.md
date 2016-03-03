@@ -39,11 +39,13 @@ priority in order to be called BEFORE any others
 ## Roadmap / todolist
 
 * translate
-* replace the js code by some smarty templating
 * configuration
 ** display or not the radio "send custom message"
 ** force custom message everytime
+* save each custom message in the database
+* Add a bcc field (or a checkbox) to send a bcc to the admin
 * Add a default empty email template containing only {$custom_message}
 * tests
+* replace the js code by some smarty templating
 
 
