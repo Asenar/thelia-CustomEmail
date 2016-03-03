@@ -108,7 +108,7 @@ class UpdateStatus extends BaseAction implements EventSubscriberInterface
     public static function getSubscribedEvents()
     {
       return array(
-        TheliaEvents::ORDER_UPDATE_STATUS => array("update_status", 255),
+        TheliaEvents::ORDER_UPDATE_STATUS => array("update_status", 129),
       );
     }
 
