@@ -39,7 +39,11 @@ class OrderEditHook extends BaseHook {
 
         $help_message = <<<HELP
 Use this form to add a custom message in the email.<br>
-To make this feature working, the email template must contains the <code>{\$custom_message}</code> placeholder
+To make this feature working, the email template must contains the placeholder code
+<code>{\$custom_message|nl2br nofilter}</code> in html version and 
+<code>{\$custom_message</code> for the text version.
+The 2 modifiers <code>nl2br</code> and <code>nofilter</code> are required
+to create newline in html email versions.
 HELP;
         $modal = <<<MODAL
 <div id="customMessageModal" class="modal fade" tabindex="-1" role="dialog">
@@ -79,7 +83,7 @@ $(document).on("ready", function(){
     container.append(label0);
 
     var label1 = $('<label class="radio">');
-    var radio1 = $('<input type="radio" name="send_mail" value="no">');
+    var radio1 = $('<input checked="checked" type="radio" name="send_mail" value="no">');
     label1.html(radio1);
     label1.append("$do_not_send");
     container.append(label1);
@@ -103,12 +107,12 @@ $(document).on("ready", function(){
     $("#order-update-status-form").on("submit", function(e) {
         var send_mail = $("input[name=send_mail]:checked").val();
         if (send_mail == "default") {
-            return;
+            return true;
         }
         console && console.log("preventing default");
         e.preventDefault();
         if (send_mail == "no") {
-            return;
+            return true;
         }
         if (send_mail == "custom") {
             console && console.log("modal show");
