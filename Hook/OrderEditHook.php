@@ -37,6 +37,10 @@ class OrderEditHook extends BaseHook {
         $do_not_send = Translator::getInstance()->trans('Do not send mail');
         $send_custom = Translator::getInstance()->trans('Send custom message');
 
+        $help_message = <<<HELP
+Use this form to add a custom message in the email.<br>
+To make this feature working, the email template must contains the <code>{\$custom_message}</code> placeholder
+HELP;
         $modal = <<<MODAL
 <div id="customMessageModal" class="modal fade" tabindex="-1" role="dialog">
   <div class="modal-dialog">
@@ -46,6 +50,7 @@ class OrderEditHook extends BaseHook {
         <h4 class="modal-title">Custom message</h4>
       </div>
       <div class="modal-body">
+        <p class="alert alert-info">$help_message</p>
         <textarea class="form-control" name="customMessageText" id="customMessageText"></textarea>
       </div>
       <div class="modal-footer">
