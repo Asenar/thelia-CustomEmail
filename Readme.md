@@ -1,3 +1,7 @@
+=== WORK IN PROGRESS ===
+
+
+
 # Custom Email
 
 This module allow administrator to add a custom message to an automatic email is sent after a status change.
