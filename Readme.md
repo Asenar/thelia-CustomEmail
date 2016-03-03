@@ -1,8 +1,9 @@
 # Custom Email
 
-Add a short description here. You can also add a screenshot if needed.
+This module allow administrator to add a custom message to an automatic email is sent after a status change.
 
 ## Installation
+
 
 ### Manually
 
@@ -17,39 +18,32 @@ Add it in your main thelia composer.json file
 composer require your-vendor/custom-email-module:~1.0
 ```
 
-## Usage
+## Configuration
 
-Explain here how to use your module, how to configure it, etc.
+Edit each email template which can have a custom message, to add
+`{$custom_message}` where you want the message to be displayed.
+
+If the code is missing, the email will be sent with the defaulith the default message unchanged.
+
 
 ## Hook
 
-If your module use one or more hook, fill this part. Explain which hooks are used.
+`order.edit-js` : This hooks is used to add a modal in order-edit admin page.
 
 
-## Loop
+## Services
 
-If your module declare one or more loop, describe them here like this :
+This module subscribe to event TheliaEvents::ORDER_UPDATE_STATUS with a high
+priority in order to be called BEFORE any others
 
-[loop name]
+## Roadmap / todolist
 
-### Input arguments
+* translate
+* replace the js code by some smarty templating
+* configuration
+** display or not the radio "send custom message"
+** force custom message everytime
+* Add a default empty email template containing only {$custom_message}
+* tests
 
-|Argument |Description |
-|---      |--- |
-|**arg1** | describe arg1 with an exemple. |
-|**arg2** | describe arg2 with an exemple. |
 
-### Output arguments
-
-|Variable   |Description |
-|---        |--- |
-|$VAR1    | describe $VAR1 variable |
-|$VAR2    | describe $VAR2 variable |
-
-### Exemple
-
-Add a complete exemple of your loop
-
-## Other ?
-
-If you have other think to put, feel free to complete your readme as you want.
